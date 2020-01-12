@@ -1,8 +1,9 @@
 echo What do you want to name your class?
 read className
+cd src
 touch $className.cpp
 touch $className.h
 echo "#include \"$className.h\"" > $className.cpp
 echo "class $className
 {
-}" > $className.h 
+};" > $className.h 
