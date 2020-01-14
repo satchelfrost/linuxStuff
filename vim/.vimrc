@@ -1,5 +1,14 @@
-set number
+set relativenumber
 set autoindent
+
+" Search down into subfolders
+set path+=**
+
+" Display matching files with tab complete
+set wildmenu
+
+" Create tags using MakeTags command
+command! MakeTags !ctags -R
 
 " <F1>	- switch buffer
 " <F2>	- free 
@@ -15,9 +24,9 @@ set autoindent
 " <F12>	- free 
 
 map <F1>  :w<CR>:bn <CR>
-map <F5>  :w<CR>:!cd ../ && make <CR>
-map <F6>  :w<CR>:!cd ../ && make 
-map <F7>  :w<CR>:!cd ../ && ./bin/main 
+map <F5>  :w<CR>:!make <CR>
+map <F6>  :w<CR>:!make 
+map <F7>  :w<CR>:!./bin/main 
 map <F9>  :w<CR>yy:bn<CR>Go<ESC>p0xwi::<ESC>:w<CR>:bn<CR>gg/class<CR>w<C-v>$y:bn<CR>wPf;xo{<CR>}<ESC>
 map <F10> :w<CR>yy:bn<CR>Go<ESC>p0xi::<ESC>w<C-v>f(hy0Pf;xo{<CR>}<ESC>
 map <F11> yyGo<ESC>pf;xo{<CR>}<ESC><C-o>
