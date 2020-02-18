@@ -1,0 +1,7 @@
+e.g. if you have a director say "folder"
+then execute command "tar -cvf myFolder.tar folder"
+then gzip the output of that e.g. "gzip myFolder.tar"
+to get "myFolder.tar.gz"
+
+To uncommpress and extract in a single command type:
+"tar zxvf myFolder.tar.gz"

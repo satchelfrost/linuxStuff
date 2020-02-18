@@ -1,0 +1,7 @@
+if "git apply p0.diff" does not work,
+then do the following:
+
+"
+git apply -R p0.diff
+git apply p0.diff
+"
