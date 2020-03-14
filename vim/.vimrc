@@ -12,8 +12,8 @@ command! MakeTags !ctags -R
 
 " <F1>	- switch buffer
 " <F2>	- free 
-" <F3>	- free
-" <F4>	- free
+" <F3>	- Edit binary
+" <F4>	- Save and quit binary
 " <F5>	- compile and run
 " <F6>	- bring up make and expect argument
 " <F7>	- command line arguments 
@@ -24,6 +24,8 @@ command! MakeTags !ctags -R
 " <F12>	- free 
 
 map <F1>  :w<CR>:bn <CR>
+map <F3>  :%!xxd<CR>
+map <F4>  :%!xxd -r<CR>:wq<CR>
 map <F5>  :w<CR>:!make <CR>
 map <F6>  :w<CR>:!make 
 map <F7>  :w<CR>:!./bin/main 
