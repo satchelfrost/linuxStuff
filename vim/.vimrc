@@ -1,3 +1,5 @@
+colorscheme ron
+
 set relativenumber
 set autoindent
 
