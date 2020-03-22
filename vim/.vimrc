@@ -1,6 +1,7 @@
 colorscheme ron
 
 set relativenumber
+set number
 set autoindent
 
 " Search down into subfolders
