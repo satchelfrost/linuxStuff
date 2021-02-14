@@ -3,6 +3,10 @@ colorscheme ron
 set relativenumber
 set number
 set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " Search down into subfolders
 set path+=**
@@ -60,3 +64,7 @@ inoremap {{<TAB> {<CR>};<ESC>
 
 " #include
 inoremap #<TAB> #include 
+
+" Page up and down
+nnoremap gk <PageUP>
+nnoremap gj <PageDown>
