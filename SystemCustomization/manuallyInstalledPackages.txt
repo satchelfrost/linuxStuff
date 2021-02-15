@@ -1,0 +1,10 @@
+vim
+simplescreenrecorder
+build-essential
+git
+apt-transport-https
+curl
+gnupg
+cmake
+wine
+winetricks

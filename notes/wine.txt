@@ -1,0 +1,2 @@
+WINEARCH=win32 WINEPREFIX=/path/to/wine/bottle winetricks <package to install (e.g. dotnet462)> 
+WINEARCH=win32 WINEPREFIX=/path/to/wine/bottle wine /path/to/wine/bottle/drive_c/executable.exe 
