@@ -1,0 +1,10 @@
+# List devices
+df -h
+
+# First unmount before formatting
+sudo umount /dev/nameofusb
+
+# Next format using whichever file system
+sudo mkfs.vfat /dev/nameofusb
+sudo mkfs.ntfs /dev/nameofusb
+sudo mkfs.ext4 /dev/nameofusb

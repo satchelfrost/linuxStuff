@@ -1,0 +1,35 @@
+# First make sure that rsync is installed on both machines
+sudo -s
+
+# Next login as root on the host machine and go into roots home directory and run the following
+ssh-keygen
+
+# Next secure copy the public key over to the server
+scp /root/.ssh/publickey.pub user@ipOfServer:/some/directory
+
+# Then login as root on the server and place the public key in /root
+# Next make a directory if one dies not exist for .ssh and give it 700 permissions
+mkdir -p /root/.ssh
+chmod 700
+touch /root/.ssh/authorized_keys
+chmod 600 authorized_keys
+
+# Finally, cat the key in the authorized_keys
+cat /root/publickey.pub >> /root/.ssh/authorized_keys
+
+# Back on the host machin create a script, e.g. backup.sh
+rsync -avz root@ip:/home/satchelfrost/folderToBackupOnServer /home/reese/BackupFolderOnHost
+
+# Note use --delete if you want it to be a mirror
+rsync -avz --delete root@ip:/home/satchelfrost/folderToBackupOnServer /home/reese/BackupFolderOnHost
+
+# Next edit crontab as root
+crontab -e
+
+# If not root then use sudo
+sudo crontab -e
+
+# Edit the schedule and give it the path to the script
+# e.g. every minute backup
+* * * * * /full/path/to/script.sh
+
