@@ -1,0 +1,25 @@
+# PART 1/2 - Creating a Certificate Authority (CA) with openssl
+
+# STEP 1: create a key for the CA and a self-signed certificate
+openssl req -x509 -new -SHA384 -keyout ca.key -out ca.crt -days 3650
+
+
+# PART 2/2 - Creating a component with component name that the CA trusts
+
+
+# STEP 1: Create a keypair for your new java keystore (output as a .jks file)
+keytool -genkeypair -alias component -keyalg EC -keysize 256 -sigalg SHA384withECDSA -validity 365 -keystore component.jks
+
+# NOTE: make sure the common name is the same as the uci
+
+# STEP 2: import the CA's certificate
+keytool -import -keystore component.jks -file ca.crt -alias thecaroot
+
+# STEP 3: generate a certificate signing request
+keytool -keystore component.jks -certreq -alias component -keyalg EC -file component.csr
+
+# STEP 4: have the CA sign the request
+openssl x509 -req -SHA384 -days 365 -in component.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out component.crt
+
+# STEP 5: import the signed certificate on the same alias where the key was generated in the .jks
+keytool -importcert -keystore component.jks -file component.crt -alias component 

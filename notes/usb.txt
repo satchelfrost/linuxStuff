@@ -8,3 +8,15 @@ sudo umount /dev/nameofusb
 sudo mkfs.vfat /dev/nameofusb
 sudo mkfs.ntfs /dev/nameofusb
 sudo mkfs.ext4 /dev/nameofusb
+
+### Note about mounting a usb manually
+# First get the name of the usb
+df -h
+
+# Create a media folder
+mkdir -p /media/usb
+
+# Then mount
+mount /dev/maneofusb /media/usb
+
+# Then unmount with "umount
