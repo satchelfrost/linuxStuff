@@ -1,0 +1,2 @@
+# First install pdftk and then do the slicing with the following
+$ pdftk A=100p-inputfile.pdf cat A22-36 output outfile_p22-p36.pdf
