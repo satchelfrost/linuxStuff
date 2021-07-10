@@ -1,0 +1,5 @@
+# Things in the /usr/bin directory can be run like other programs like "gcc" or "apt"
+# For example if I compile a program called hello (i.e. gcc -o hello hello.c) and
+# paste it in /usr/bin. I can run "hello" without typing the "./" at the beginning
+# alternatively the same can be done with a python script as long as it is executable
+# and it has the #!/usr/bin/python3 at the beginning of the script.
